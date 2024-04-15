@@ -73,27 +73,29 @@ const Marketplace = ({ searchInput }) => {
             return <Item key={i.item_id} item={i} />;
           })}
       </div>
-      <div className="items-list__pagination">
-        <button
-          disabled={currentPage === 1}
-          onClick={() => {
-            goToPage(currentPage - 1);
-            window.scrollTo(0, 0);
-          }}
-        >
-          Previous
-        </button>
-        {renderPagination()}
-        <button
-          disabled={currentPage === numPages}
-          onClick={() => {
-            goToPage(currentPage + 1);
-            window.scrollTo(0, 0);
-          }}
-        >
-          Next
-        </button>
-      </div>
+      {items.length > 12 && (
+        <div className="items-list__pagination">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => {
+              goToPage(currentPage - 1);
+              window.scrollTo(0, 0);
+            }}
+          >
+            Previous
+          </button>
+          {renderPagination()}
+          <button
+            disabled={currentPage === numPages}
+            onClick={() => {
+              goToPage(currentPage + 1);
+              window.scrollTo(0, 0);
+            }}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };
