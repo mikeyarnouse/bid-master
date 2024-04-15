@@ -94,16 +94,20 @@
   }
 
   &__change-avatar {
-    position: fixed;
+    position: absolute;
     background-color: $Light-Grey;
     width: 100vw;
     top: 0;
     left: 0;
-    height: 100vh;
     display: flex;
     z-index: 1;
     transform: translateX(-50%) translateY(100%);
     animation: slideInFromBottom 0.5s forwards;
+    height: 256rem;
+
+    @include desktop {
+      height: 102rem;
+    }
 
     &__close {
       width: 32px;
@@ -173,9 +177,10 @@
     padding: 1rem 1.25rem;
     z-index: 1;
     border-bottom: 2px solid $Graphite;
+    height: 256rem;
 
     @include desktop {
-      height: 100vh;
+      height: 102rem;
     }
 
     &-close {
