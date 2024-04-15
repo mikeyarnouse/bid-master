@@ -2,12 +2,8 @@
 
 ## Instructions To Run Application:
 
-- Npm install all dependencies within each package.json file
-- Set up .env file on client-side based on the contents of its respective .env.sample file
-- Set up .env file on server-side based on the contents of its respective .env.sample file
-- Generate Secret Key for the .env file on server-side with the command: node -e "console.log(require('crypto').randomBytes(32).toString('hex'));"
-- Run npx knex migrate:latest to create database tables
-- Run npx knex seed:run to populate the database tables with mock user, item and bid data
+- Npm install all dependencies within the package.json file
+- Set up .env file based on the contents of the .env.sample file
 
 ## Overview
 
