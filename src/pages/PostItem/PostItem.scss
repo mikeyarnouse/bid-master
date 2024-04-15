@@ -1,0 +1,127 @@
+@use "../../styles/partials/variables" as *;
+
+.post-item {
+  width: 100%;
+  min-height: 100vh;
+  // background-color: $Slate;
+  background-color: $White;
+  // position: absolute;
+  // top: 0;
+  // z-index: 1;
+  padding: 1.75rem 1.5rem;
+
+  &__title {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #000;
+    // margin-top: 2rem;
+
+    &-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    left: 1.5rem;
+  }
+
+  &__form {
+    margin-top: 1.75rem;
+    width: 100%;
+    max-width: 600px;
+
+    &-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &-image {
+      display: flex;
+      flex-direction: column;
+
+      &__label {
+        color: #000;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    &-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 2.25rem;
+
+      &__btn {
+        width: 5.5rem;
+        height: 2.5rem;
+        border: 1px solid black;
+        border-radius: 0.75rem;
+        transition: all 0.5s ease;
+        background-color: $Instock-Black;
+        color: $White;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $Cloud;
+          color: $Instock-Black;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+input[type="file"] {
+  position: relative;
+}
+
+/* Faked label styles and icon */
+input[type="file"]::before {
+  position: absolute;
+  pointer-events: none;
+  top: 7.5px;
+  left: 5px;
+  height: 20px;
+  width: 20px;
+  content: "";
+  background-image: url("../../assets/icons/upload.svg");
+  color: black;
+}
+
+input[type="file"]::file-selector-button {
+  border-radius: 4px;
+  padding: 0 16px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #1f273a;
+  color: $White;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  margin-right: 16px;
+  transition: background-color 200ms;
+  width: 145px;
+  text-align: end;
+  content: "Upload File";
+
+  &:hover {
+    cursor: pointer;
+    background-color: $Slate;
+    font-weight: 500;
+  }
+}
+
+/* file upload button hover state */
+input[type="file"]::file-selector-button:hover {
+  // background-color: $White;
+  // color: $Instock-Black;
+}
+
+/* file upload button active state */
+input[type="file"]::file-selector-button:active {
+  // background-color: $White;
+  // color: $Instock-Black;
+}

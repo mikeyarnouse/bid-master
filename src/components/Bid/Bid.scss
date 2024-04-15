@@ -1,0 +1,22 @@
+.bid {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+
+  &--highest {
+    color: rgb(0, 199, 0);
+  }
+
+  &__username {
+    width: 20%;
+    text-align: start;
+  }
+  &__amount {
+    width: 20%;
+    text-align: end;
+  }
+  &__time {
+    width: 45%;
+    text-align: end;
+  }
+}

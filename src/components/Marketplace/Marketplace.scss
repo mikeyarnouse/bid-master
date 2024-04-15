@@ -1,0 +1,84 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.items-list {
+  // @include tablet {
+  //   padding: 0 3.75rem;
+  // }
+  // @include desktop {
+  //   padding: 0 6rem;
+  // }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid $Cloud;
+    padding: 1.5rem 1.75rem;
+
+    @include tablet {
+      padding: 2.25rem 2.5rem;
+    }
+    @include desktop {
+      padding: 2.75rem 3rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    // margin-top: 1rem;
+    // background-color: $Cloud;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+
+    @include tablet {
+      padding: 2.25rem 0;
+    }
+    @include desktop {
+      padding: 2.75rem 0;
+    }
+
+    button {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .items-list {
+    &__content {
+      margin: 0;
+      // gap: 1rem;
+      // justify-content: space-between;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    &__title {
+      border: none;
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .items-list {
+    &__content {
+      // flex-direction: row;
+      // flex-wrap: wrap;
+      // gap: 3rem;
+    }
+    &__title {
+      font-size: 2.25rem;
+    }
+  }
+}

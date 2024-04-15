@@ -1,0 +1,13 @@
+@use "./styles/partials/typography" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "primary", "secondary", "sans-serif";
+  height: 100vh;
+}

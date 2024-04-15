@@ -1,0 +1,148 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.item-details {
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+
+    &-container {
+      padding-top: 1.5rem;
+      position: relative;
+
+      @include desktop {
+        padding-top: 2.5rem;
+      }
+    }
+  }
+
+  &__back-arrow {
+    position: absolute;
+    top: 1.75rem;
+    left: 1.75rem;
+    width: 28px;
+  }
+
+  &__info {
+    padding: 1.75rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include tablet {
+      padding: 2.5rem 0;
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    &-user-name,
+    &-desc {
+      font-weight: 500;
+    }
+
+    &-user-name {
+      &--blue {
+        color: rgb(54, 124, 255);
+        font-weight: 600;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &-desc {
+      text-align: center;
+      width: 80%;
+      @include tablet {
+        font-size: 1.125rem;
+      }
+      @include desktop {
+        width: 100%;
+      }
+    }
+
+    &-img {
+      max-height: 480px;
+      border-radius: 12px;
+      object-fit: contain;
+      max-width: 300px;
+
+      @include tablet {
+        max-width: 480px;
+      }
+
+      @include desktop {
+        max-width: 600px;
+      }
+    }
+  }
+
+  &__post {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+
+    &-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &-btn {
+      width: 5.5rem;
+      height: 2.5rem;
+      border: 1px solid black;
+      border-radius: 0.75rem;
+      transition: all 0.5s ease;
+      background-color: $Instock-Black;
+      color: $White;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $Cloud;
+        color: $Instock-Black;
+      }
+    }
+  }
+
+  &__bids {
+    padding: 1rem 1.5rem;
+    height: 50vh;
+    background-color: $Graphite;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    max-width: 600px;
+
+    @include tablet {
+      max-width: 450px;
+      min-width: 450px;
+    }
+
+    &-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: $Cloud;
+    }
+
+    &-none {
+      color: $White;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+}

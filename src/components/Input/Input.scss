@@ -1,0 +1,41 @@
+@use "../../styles/partials/variables" as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    margin-bottom: 0.5rem;
+
+    &-item {
+      color: #000;
+    }
+  }
+
+  &__input {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1.25rem;
+    padding: 0.5rem;
+    font-size: inherit;
+
+    &--invalid {
+      border-color: red;
+      animation: shakeItUp 0.25s;
+    }
+  }
+}
+
+@keyframes shakeItUp {
+  0% {
+    transform: translateX(-20px);
+  }
+
+  50% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

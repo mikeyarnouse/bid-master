@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Primary";
+  src: url("../../assets/fonts/Montserrat-VariableFont_wght.ttf")
+    format("truetype");
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Primary";
+  src: url("../../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Secondary";
+  src: url("../../assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: "Secondary";
+  src: url("../../assets/fonts/OpenSans-Italic-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-style: italic;
+  font-display: fallback;
+}

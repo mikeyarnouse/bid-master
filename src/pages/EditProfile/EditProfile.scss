@@ -1,0 +1,129 @@
+// @use "../../styles/partials/variables" as *;
+// @use "../../styles/partials/mixins" as *;
+
+// .profile__edit {
+//   //   background-color: $Light-Grey;
+//   // height: 100vh;
+//   //   transition: transform 1s linear;
+//   //   animation: slideIn 1s;
+//   width: 100vw;
+//   display: flex;
+//   justify-content: center;
+//   align-items: start;
+//   position: relative;
+//   top: 0;
+//   left: 0;
+//   padding: 1rem 1.25rem;
+//   z-index: 1;
+//   //   border-bottom: 2px solid $Graphite;
+
+//   //   @include desktop {
+//   //     height: 55rem;
+//   //   }
+
+//   &-close {
+//     width: 35px;
+//     position: absolute;
+//     left: 30px;
+//     top: 15px;
+//     z-index: 1;
+//   }
+
+//   &-form {
+//     margin-top: 3.75rem;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1rem;
+//     justify-content: center;
+
+//     &__head {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 2rem;
+
+//       @include desktop {
+//         flex-direction: row;
+//         gap: 4rem;
+//       }
+//     }
+
+//     &__left,
+//     &__right {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 2rem;
+//     }
+
+//     &__label {
+//       width: 100%;
+//       display: flex;
+//       justify-content: start;
+//       font-weight: 600;
+//       color: $Graphite;
+//     }
+
+//     &__input {
+//       width: 300px;
+//       border: 1px solid #ccc;
+//       border-radius: 20px;
+//       padding: 0.5rem 0.75rem;
+//       background-color: $White;
+//       color: #000;
+//       font-weight: 500;
+
+//       &--invalid {
+//         border-color: red;
+//         animation: shakeItUp 0.25s;
+//       }
+//     }
+
+//     &__avatar {
+//       display: flex;
+//       align-items: center;
+//       gap: 1rem;
+//       justify-content: center;
+
+//       &-icon {
+//         width: 60px;
+//         // height: 50px;
+//         border-radius: 50%;
+
+//         &-block {
+//           width: 35%;
+//           display: flex;
+//           justify-content: end;
+//         }
+//       }
+//     }
+
+//     &__block {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: start;
+//       gap: 1rem;
+//     }
+
+//     &__submit {
+//       margin: 1.5rem 0 1rem 0;
+//       // width: 8.5rem;
+//       // height: 2.5rem;
+//       width: 9.5rem;
+//       height: 3.5rem;
+//       border: 1px solid black;
+//       border-radius: 2rem;
+//       transition: all 0.5s ease;
+//       background-color: $Instock-Black;
+//       color: $White;
+
+//       @include desktop {
+//         // margin
+//       }
+
+//       &-container {
+//         width: 100%;
+//         display: flex;
+//         justify-content: center;
+//       }
+//     }
+//   }
+// }
