@@ -45,7 +45,7 @@ const PostBidModal = ({
       }
     };
     getUser();
-  }, []);
+  }, [baseURL]);
 
   const handleAmountChange = (e) => {
     setAmount(e.target.value);

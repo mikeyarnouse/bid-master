@@ -35,7 +35,7 @@ const Marketplace = ({ searchInput }) => {
       }
     };
     getItems();
-  }, [currentPage, searchInput]);
+  }, [currentPage, searchInput, baseURL, startIndex, endIndex]);
 
   const goToPage = (pageNumber) => {
     setCurrentPage(pageNumber);

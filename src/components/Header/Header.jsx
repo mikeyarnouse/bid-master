@@ -1,9 +1,8 @@
-import React, { useState } from "react";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import closeIcon from "../../assets/icons/close-24px.svg";
 import closeIconWhite from "../../assets/icons/close-white.svg";
-import "./Header.scss";
 import { NavLink, useNavigate } from "react-router-dom";
+import "./Header.scss";
 
 const Header = ({
   handleSearch,

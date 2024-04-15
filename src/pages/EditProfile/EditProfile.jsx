@@ -47,17 +47,12 @@ const EditProfile = () => {
   const [cityClass, setCityClass] = useState("profile__edit-form__input");
   const [countryClass, setCountryClass] = useState("profile__edit-form__input");
 
-  const [searchInput, setSearchInput] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchBarOpen, setSearchBarOpen] = useState(false);
   const [searchIconVisibility, setSearchIconVisibility] = useState(true);
 
   const [failedAuth, setFailedAuth] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleSearch = (e) => {
-    setSearchInput(e.target.value);
-  };
 
   const isStringValid = (s) => {
     return s.length !== 0;
@@ -348,7 +343,7 @@ const EditProfile = () => {
 
       if (isNewPasswordValid()) {
         try {
-          const res = await axios.put(
+          await axios.put(
             `${baseURL}/users/current`,
             {
               username: editFormData.username,
@@ -376,7 +371,7 @@ const EditProfile = () => {
         }
       } else {
         try {
-          const res = await axios.put(
+          await axios.put(
             `${baseURL}/users/current`,
             {
               username: editFormData.username,
@@ -430,8 +425,8 @@ const EditProfile = () => {
           },
         });
         // setUser(res.data);
-        setEditFormData({
-          ...editFormData,
+        setEditFormData((prevEditFormData) => ({
+          ...prevEditFormData,
           username: res.data.username,
           balance: res.data.balance,
           email_address: res.data.email_address,
@@ -441,7 +436,7 @@ const EditProfile = () => {
           street_address: res.data.street_address,
           city: res.data.city,
           country: res.data.country,
-        });
+        }));
         // Pass bearer token in the headers
       } catch (error) {
         console.error(error);
@@ -449,13 +444,12 @@ const EditProfile = () => {
       }
     };
     getUserData();
-  }, []);
+  }, [baseURL]);
 
   if (failedAuth) {
     return (
       <>
         <Header
-          handleSearch={handleSearch}
           mobileMenuOpen={mobileMenuOpen}
           setMobileMenuOpen={setMobileMenuOpen}
           searchBarOpen={searchBarOpen}
@@ -482,7 +476,6 @@ const EditProfile = () => {
   return (
     <>
       <Header
-        handleSearch={handleSearch}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         searchBarOpen={searchBarOpen}
