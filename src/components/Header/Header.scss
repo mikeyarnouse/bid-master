@@ -120,8 +120,8 @@
 
     &-menu {
       position: absolute;
-      transition: transform 1s linear;
-      animation: slideIn 1s;
+      transition: transform 0.5s ease;
+      animation: slideInLeft 0.5s;
       position: fixed;
       top: 0;
       left: 0;
@@ -143,8 +143,8 @@
       &__close {
         width: 32px;
         position: relative;
-        top: 10px;
-        left: 10px;
+        top: 1.25rem;
+        left: 1.5rem;
       }
 
       &__list {
@@ -254,7 +254,7 @@
   }
 }
 
-@keyframes slideIn {
+@keyframes slideInLeft {
   0% {
     transform: translateX(-100%);
   }

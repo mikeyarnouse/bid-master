@@ -364,8 +364,6 @@ const EditProfile = () => {
               },
             }
           );
-          //   setEditModalVisibility(false);
-          //   setUpdateUserFlag((prev) => !prev);
         } catch (e) {
           console.error(e);
         }
@@ -391,8 +389,6 @@ const EditProfile = () => {
               },
             }
           );
-          //   setEditModalVisibility(false);
-          //   setUpdateUserFlag((prev) => !prev);
         } catch (e) {
           console.error(e);
         }
@@ -485,12 +481,7 @@ const EditProfile = () => {
         isLoggedIn={isLoggedIn}
       />
       <main className="profile__edit">
-        <img
-          src={closeIcon}
-          alt=""
-          className="profile__edit-close"
-          // onClick={() => setEditModalVisibility(false)}
-        />
+        <img src={closeIcon} alt="" className="profile__edit-close" />
         <form
           className="profile__edit-form"
           action=""

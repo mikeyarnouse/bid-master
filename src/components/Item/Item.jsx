@@ -2,15 +2,12 @@ import React from "react";
 import "./Item.scss";
 
 const Item = ({ item }) => {
-  // console.log(item.image_url);
   return (
     <a className="item" href={`/items/${item.item_id}`}>
       <img src={item.image_url} alt={item.description} className="item__img" />
       <div className="item-info">
         <h3 className="item-info__title">{item.name}</h3>
-        {/* <p className="item-info__desc">{item.description}</p> */}
         <p className="item-info__highest-bid">
-          {/* {`Lowest Ask: $${item.highest_bid}`} */}
           {`Lowest Ask: $`}
           {`${String(item.highest_bid).length < 4 ? item.highest_bid : ""}`}
           {`${

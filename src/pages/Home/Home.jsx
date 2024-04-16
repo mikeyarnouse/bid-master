@@ -32,8 +32,6 @@ const Home = () => {
     sessionStorage.removeItem("token");
     setIsLoggedIn(false);
     setMobileMenuOpen(false);
-    // setUser(null);
-    // setFailedAuth(true);
   };
 
   return (

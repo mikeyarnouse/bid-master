@@ -1,14 +1,11 @@
 @use "../../../styles/partials/variables" as *;
 
 .post-modal {
-  // position: absolute;
   position: fixed;
   bottom: 0;
   background-color: $Cloud;
   height: 51vh;
   width: 100%;
-  // transition: transform 1s linear;
-  // animation: slideIn 1s;
   transform: translateX(-50%) translateY(100%);
   animation: slideInFromBottom2 0.5s forwards;
 
