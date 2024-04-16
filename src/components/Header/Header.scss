@@ -119,24 +119,20 @@
     }
 
     &-menu {
-      // padding: 1.25rem 2.25rem;
       position: absolute;
-      transition: transform 0.5s linear;
-      // transform: translateX(-100%);
-      animation: slideIn 0.5s;
+      transition: transform 1s linear;
+      animation: slideIn 1s;
       position: fixed;
       top: 0;
       left: 0;
       background-color: $Slate;
       opacity: 1;
-      // height: 21.0125rem;
       height: 100vh;
       width: 100%;
       display: flex;
       flex-direction: column;
       gap: 2rem;
       list-style: none;
-      transition: all 0.5s ease;
       color: $White;
       z-index: 3;
 
@@ -154,7 +150,6 @@
       &__list {
         display: flex;
         flex-direction: column;
-        // gap: 1rem;
         align-items: center;
 
         &-desktop {
@@ -240,7 +235,6 @@
         }
 
         &--desktop {
-          // @include desktop {
           width: 5.5rem;
           height: 2.5rem;
           border: 1px solid black;
@@ -254,7 +248,6 @@
             color: $Instock-Black;
             font-weight: 500;
           }
-          // }
         }
       }
     }

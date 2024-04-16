@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "../../components/Input/Input";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import closeIcon from "../../assets/icons/close-24px.svg";
 import "./PostItem.scss";
@@ -10,14 +10,9 @@ const PostItemModal = () => {
   const baseURL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
-  const [searchInput, setSearchInput] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchBarOpen, setSearchBarOpen] = useState(false);
   const [searchIconVisibility, setSearchIconVisibility] = useState(false);
-
-  const handleSearch = (e) => {
-    setSearchInput(e.target.value);
-  };
 
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
@@ -188,13 +183,7 @@ const PostItemModal = () => {
       alert("Invalid Fields");
     } else {
       postItem();
-      console.log(imageFile);
-      console.log(itemName);
-      console.log(description);
-      console.log(category);
-      console.log(startBid);
-      console.log(expirationDate);
-      console.log(expirationTime);
+      clearState();
       navigate("/profile");
     }
   };
@@ -202,7 +191,6 @@ const PostItemModal = () => {
   return (
     <>
       <Header
-        handleSearch={handleSearch}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         searchBarOpen={searchBarOpen}

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import closeIcon from "../../assets/icons/close-24px.svg";
@@ -10,7 +10,6 @@ import "./Profile.scss";
 const Profile = () => {
   const baseURL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
-  const location = useLocation();
   const fileInputRef = useRef(null);
 
   const ITEMS_PER_PAGE = 12;
@@ -32,7 +31,6 @@ const Profile = () => {
 
   const [avatarModalVisibility, setAvatarModalVisibility] = useState(false);
   const [editModalVisibility, setEditModalVisibility] = useState(false);
-  const [uploadModalVisibility, setUploadModalVisibility] = useState(false);
 
   const [avatarPreview, setAvatarPreview] = useState("");
   const [avatarFile, setAvatarFile] = useState("");
@@ -40,7 +38,6 @@ const Profile = () => {
   const [updateUserFlag, setUpdateUserFlag] = useState(false);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [lastPath, setLastPath] = useState(null);
 
   const [editFormData, setEditFormData] = useState({
     username: "",
@@ -179,10 +176,6 @@ const Profile = () => {
 
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
-  };
-
-  const handleButtonClick = () => {
-    fileInputRef.current.click();
   };
 
   const goToPage = (pageNumber) => {
@@ -440,7 +433,7 @@ const Profile = () => {
 
       if (isNewPasswordValid()) {
         try {
-          const res = await axios.put(
+          await axios.put(
             `${baseURL}/users/current`,
             {
               username: editFormData.username,
@@ -468,7 +461,7 @@ const Profile = () => {
         }
       } else {
         try {
-          const res = await axios.put(
+          await axios.put(
             `${baseURL}/users/current`,
             {
               username: editFormData.username,
@@ -509,8 +502,8 @@ const Profile = () => {
           },
         });
         setUser(res.data);
-        setEditFormData({
-          ...editFormData,
+        setEditFormData((prevEditFormData) => ({
+          ...prevEditFormData,
           username: res.data.username,
           balance: res.data.balance,
           email_address: res.data.email_address,
@@ -520,7 +513,7 @@ const Profile = () => {
           street_address: res.data.street_address,
           city: res.data.city,
           country: res.data.country,
-        });
+        }));
         // Pass bearer token in the headers
       } catch (error) {
         console.error(error);
@@ -528,7 +521,7 @@ const Profile = () => {
       }
     };
     getUserData();
-  }, [avatarModalVisibility, updateUserFlag]);
+  }, [avatarModalVisibility, updateUserFlag, baseURL]);
 
   useEffect(() => {
     const getUserItems = async () => {
@@ -549,8 +542,6 @@ const Profile = () => {
             );
           }
 
-          // setLastPath(location.pathname);
-
           setUserItems(items.slice(startIndex, endIndex));
           setNumPages(Math.ceil(items.length / ITEMS_PER_PAGE));
         } catch (e) {
@@ -559,7 +550,15 @@ const Profile = () => {
       }
     };
     getUserItems();
-  }, [user, currentPage, searchInput, postItemFlag, location]);
+  }, [
+    user,
+    currentPage,
+    searchInput,
+    postItemFlag,
+    baseURL,
+    endIndex,
+    startIndex,
+  ]);
 
   if (failedAuth) {
     return (
@@ -757,7 +756,6 @@ const Profile = () => {
                     setAvatarFile(e.target.files[0]);
                   }}
                 />
-                {/* <button onClick={handleButtonClick}>Choose File</button> */}
               </div>
               <div className="profile__change-avatar__btn-sect">
                 <button className="profile__change-avatar__btn">Submit</button>
