@@ -535,20 +535,13 @@ const Profile = () => {
       if (user) {
         try {
           const res = await axios.get(`${baseURL}/users/${user.user_id}/items`);
-          setTotalItems(
-            res.data.filter(
-              (i) =>
-                new Date(`${i.expiration_date} ${i.expiration_time}`) -
-                  new Date() >
-                0
-            )
-          );
           let items = res.data.filter(
             (i) =>
               new Date(`${i.expiration_date} ${i.expiration_time}`) -
                 new Date() >
               0
           );
+          setTotalItems(items);
 
           if (searchInput) {
             items = items.filter((i) =>
@@ -1079,11 +1072,6 @@ const Profile = () => {
             </button>
           </div>
         )}
-        {/* <div className="profile__logout-container">
-          <button className="profile__logout" onClick={handleLogout}>
-            Log out
-          </button>
-        </div> */}
       </main>
     </>
   );

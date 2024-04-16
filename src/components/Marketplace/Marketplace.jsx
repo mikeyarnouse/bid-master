@@ -8,6 +8,7 @@ const Marketplace = ({ searchInput }) => {
   const ITEMS_PER_PAGE = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const [items, setItems] = useState([]);
+  const [totalItems, setTotalItems] = useState([]);
   const [numPages, setNumPages] = useState(0);
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -22,6 +23,7 @@ const Marketplace = ({ searchInput }) => {
             new Date(`${i.expiration_date} ${i.expiration_time}`) - new Date() >
             0
         );
+        setTotalItems(items);
 
         if (searchInput) {
           items = items.filter((i) =>
@@ -73,27 +75,29 @@ const Marketplace = ({ searchInput }) => {
             return <Item key={i.item_id} item={i} />;
           })}
       </div>
-      <div className="items-list__pagination">
-        <button
-          disabled={currentPage === 1}
-          onClick={() => {
-            goToPage(currentPage - 1);
-            window.scrollTo(0, 0);
-          }}
-        >
-          Previous
-        </button>
-        {renderPagination()}
-        <button
-          disabled={currentPage === numPages}
-          onClick={() => {
-            goToPage(currentPage + 1);
-            window.scrollTo(0, 0);
-          }}
-        >
-          Next
-        </button>
-      </div>
+      {totalItems > 12 && (
+        <div className="items-list__pagination">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => {
+              goToPage(currentPage - 1);
+              window.scrollTo(0, 0);
+            }}
+          >
+            Previous
+          </button>
+          {renderPagination()}
+          <button
+            disabled={currentPage === numPages}
+            onClick={() => {
+              goToPage(currentPage + 1);
+              window.scrollTo(0, 0);
+            }}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };
