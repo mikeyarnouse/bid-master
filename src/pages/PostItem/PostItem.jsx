@@ -151,6 +151,14 @@ const PostItemModal = () => {
     setExpirationTime("");
   };
 
+  const handleLogout = () => {
+    // Remove token from storage
+    sessionStorage.removeItem("token");
+    setIsLoggedIn(false);
+    setMobileMenuOpen(false);
+    setFailedAuth(true);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const postItem = async (req, res) => {
@@ -239,6 +247,7 @@ const PostItemModal = () => {
         searchIconVisibility={searchIconVisibility}
         setSearchIconVisibility={setSearchIconVisibility}
         isLoggedIn={isLoggedIn}
+        handleLogout={handleLogout}
       />
       <main className="post-item">
         <div className="post-item__title-container">
