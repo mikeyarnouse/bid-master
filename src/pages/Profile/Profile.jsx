@@ -623,7 +623,7 @@ const Profile = () => {
       />
       <main className="profile">
         <h2 className="profile__info-welcome__text">
-          Welcome Back, {user.first_name} {user.last_name}!
+          Hi, {user.first_name} {user.last_name}.
         </h2>
         <div className="profile__info">
           <div className="profile__info-user">
