@@ -73,7 +73,7 @@ const Marketplace = ({ searchInput }) => {
             return <Item key={i.item_id} item={i} />;
           })}
       </div>
-      {items.length > 12 && (
+      {items.length >= 12 && (
         <div className="items-list__pagination">
           <button
             disabled={currentPage === 1}
