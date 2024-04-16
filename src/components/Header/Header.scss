@@ -136,10 +136,6 @@
       color: $White;
       z-index: 3;
 
-      &-menu--open {
-        transform: translateX(0px);
-      }
-
       &__close {
         width: 32px;
         position: relative;
