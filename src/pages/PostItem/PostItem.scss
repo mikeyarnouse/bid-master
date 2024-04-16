@@ -46,8 +46,8 @@
       }
 
       &__img {
-        max-width: 280px;
-        max-height: 280px;
+        max-width: 255px;
+        max-height: 255px;
         border-radius: 8px;
 
         @include tablet {
