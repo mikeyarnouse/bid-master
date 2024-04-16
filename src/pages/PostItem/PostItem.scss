@@ -45,9 +45,14 @@
       }
 
       &__img {
-        max-width: 300px;
-        max-height: 300px;
+        max-width: 280px;
+        max-height: 280px;
         border-radius: 8px;
+
+        @include tablet {
+          max-width: 300px;
+          max-height: 300px;
+        }
       }
 
       &__input {
@@ -83,6 +88,7 @@
 
 input[type="file"] {
   position: relative;
+  width: 55%;
 }
 
 input[type="file"]::before {

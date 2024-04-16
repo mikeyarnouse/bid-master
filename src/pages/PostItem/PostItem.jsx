@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../components/Input/Input";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import closeIcon from "../../assets/icons/close-24px.svg";
-import "./PostItem.scss";
 import Header from "../../components/Header/Header";
+import "../Profile/Profile.scss";
+import "./PostItem.scss";
 
 const PostItemModal = () => {
   const baseURL = process.env.REACT_APP_API_URL;
@@ -13,6 +14,8 @@ const PostItemModal = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchBarOpen, setSearchBarOpen] = useState(false);
   const [searchIconVisibility, setSearchIconVisibility] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [failedAuth, setFailedAuth] = useState(false);
 
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
@@ -57,10 +60,6 @@ const PostItemModal = () => {
   };
   const handleExpirationTimeChange = (e) => {
     setExpirationTime(e.target.value);
-  };
-  const handleImageFileChange = (e) => {
-    console.log(e);
-    setImageFile(e.target.files[0]);
   };
 
   const isStringValid = (str) => {
@@ -188,6 +187,48 @@ const PostItemModal = () => {
     }
   };
 
+  const checkToken = () => {
+    // getItem from sessionStorage token
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      setFailedAuth(true);
+      return null;
+    }
+    setIsLoggedIn(true);
+    return token;
+  };
+
+  useEffect(() => {
+    const token = checkToken();
+    console.log(token);
+  }, []);
+
+  if (failedAuth) {
+    return (
+      <>
+        <Header
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+          searchBarOpen={searchBarOpen}
+          setSearchBarOpen={setSearchBarOpen}
+          searchIconVisibility={searchIconVisibility}
+          setSearchIconVisibility={setSearchIconVisibility}
+          isLoggedIn={isLoggedIn}
+        />
+        <main className="profile">
+          <p className="profile__login-text">
+            You must be logged in to see this page.
+          </p>
+          <div className="profile__login-link-container">
+            <button className="profile__login-link">
+              <Link to="/login">Log in</Link>
+            </button>
+          </div>
+        </main>
+      </>
+    );
+  }
+
   return (
     <>
       <Header
@@ -197,6 +238,7 @@ const PostItemModal = () => {
         setSearchBarOpen={setSearchBarOpen}
         searchIconVisibility={searchIconVisibility}
         setSearchIconVisibility={setSearchIconVisibility}
+        isLoggedIn={isLoggedIn}
       />
       <main className="post-item">
         <div className="post-item__title-container">
