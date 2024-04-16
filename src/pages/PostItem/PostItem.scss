@@ -3,11 +3,7 @@
 .post-item {
   width: 100%;
   min-height: 100vh;
-  // background-color: $Slate;
   background-color: $White;
-  // position: absolute;
-  // top: 0;
-  // z-index: 1;
   padding: 1.75rem 1.5rem;
 
   &__title {
@@ -15,7 +11,6 @@
     font-size: 1.25rem;
     font-weight: 600;
     color: #000;
-    // margin-top: 2rem;
 
     &-container {
       display: flex;
@@ -42,6 +37,12 @@
     &-image {
       display: flex;
       flex-direction: column;
+      align-items: start;
+
+      &__img {
+        max-width: 300px;
+        max-height: 300px;
+      }
 
       &__label {
         color: #000;
@@ -79,7 +80,6 @@ input[type="file"] {
   position: relative;
 }
 
-/* Faked label styles and icon */
 input[type="file"]::before {
   position: absolute;
   pointer-events: none;
@@ -112,16 +112,4 @@ input[type="file"]::file-selector-button {
     background-color: $Slate;
     font-weight: 500;
   }
-}
-
-/* file upload button hover state */
-input[type="file"]::file-selector-button:hover {
-  // background-color: $White;
-  // color: $Instock-Black;
-}
-
-/* file upload button active state */
-input[type="file"]::file-selector-button:active {
-  // background-color: $White;
-  // color: $Instock-Black;
 }

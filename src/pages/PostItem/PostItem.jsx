@@ -26,6 +26,7 @@ const PostItemModal = () => {
   const [expirationDate, setExpirationDate] = useState("");
   const [expirationTime, setExpirationTime] = useState("");
   const [imageFile, setImageFile] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
 
   const [itemNameClass, setItemNameClass] = useState(
     "field__input field__input-item"
@@ -287,11 +288,19 @@ const PostItemModal = () => {
               <label htmlFor="image" className="post-item__form-image__label">
                 Image
               </label>
+              <img
+                src={imagePreview || "https://placehold.co/250"}
+                className="post-item__form-image__img"
+                alt="preview"
+              />
               <input
                 type="file"
                 name="image"
                 className="post-item__form-image__input"
-                onChange={(e) => setImageFile(e.target.files[0])}
+                onChange={(e) => {
+                  setImagePreview(URL.createObjectURL(e.target.files[0]));
+                  setImageFile(e.target.files[0]);
+                }}
               />
             </div>
             <div className="post-item__form-buttons">
