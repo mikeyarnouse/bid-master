@@ -1,4 +1,5 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .post-item {
   width: 100%;
@@ -88,7 +89,7 @@
 
 input[type="file"] {
   position: relative;
-  width: 55%;
+  width: 145px;
 }
 
 input[type="file"]::before {
