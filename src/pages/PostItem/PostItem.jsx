@@ -192,6 +192,7 @@ const PostItemModal = () => {
       postItem();
       clearState();
       navigate("/profile");
+      window.location.reload();
     }
   };
 
