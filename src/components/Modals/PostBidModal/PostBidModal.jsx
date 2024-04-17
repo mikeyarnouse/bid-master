@@ -81,6 +81,7 @@ const PostBidModal = ({
         );
         setItemBidFlag(!itemBidFlag);
         console.log(res);
+        window.location.reload();
       } catch (e) {
         console.error(e);
       }
