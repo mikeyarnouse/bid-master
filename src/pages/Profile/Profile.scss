@@ -432,6 +432,10 @@
 
   &:last-child {
     border-bottom: none;
+
+    @include tablet {
+      border: 1px solid $Cloud;
+    }
   }
 }
 
