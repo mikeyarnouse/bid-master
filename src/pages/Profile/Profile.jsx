@@ -1031,7 +1031,43 @@ const Profile = () => {
                     />
                     <div className="item-info">
                       <h3 className="item-info__title">{i.name}</h3>
-                      <p className="item-info__highest-bid">{`Lowest Ask: $${i.highest_bid}`}</p>
+                      <p className="item-info__highest-bid">
+                        {`Lowest Ask: $`}
+                        {`${
+                          String(i.highest_bid).length < 4 ? i.highest_bid : ""
+                        }`}
+                        {`${
+                          String(i.highest_bid).length === 4
+                            ? `${String(i.highest_bid).slice(0, 1)},${String(
+                                i.highest_bid
+                              ).slice(1, String(i.highest_bid).length)}`
+                            : ""
+                        }`}
+                        {`${
+                          String(i.highest_bid).length === 5
+                            ? `${String(i.highest_bid).slice(0, 2)},${String(
+                                i.highest_bid
+                              ).slice(2, String(i.highest_bid).length)}`
+                            : ""
+                        }`}
+                        {`${
+                          String(i.highest_bid).length === 6
+                            ? `${String(i.highest_bid).slice(0, 3)},${String(
+                                i.highest_bid
+                              ).slice(3, String(i.highest_bid).length)}`
+                            : ""
+                        }`}
+                        {`${
+                          String(i.highest_bid).length === 7
+                            ? `${String(i.highest_bid).slice(0, 1)},${String(
+                                i.highest_bid
+                              ).slice(1, 4)},${String(i.highest_bid).slice(
+                                4,
+                                String(i.highest_bid).length
+                              )}`
+                            : ""
+                        }`}
+                      </p>
                       <p
                         className={`item-info__exp item-info__exp${
                           new Date(
