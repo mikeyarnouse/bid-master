@@ -434,7 +434,7 @@
     border-bottom: none;
 
     @include tablet {
-      border: 1px solid $Cloud;
+      border-bottom: 1px solid $Cloud;
     }
   }
 }
@@ -472,10 +472,6 @@
 @media screen and (min-width: 1280px) {
   .items-list__item-block {
     width: 30%;
-
-    &:last-child {
-      border-bottom: 1px solid $Cloud;
-    }
   }
 }
 
