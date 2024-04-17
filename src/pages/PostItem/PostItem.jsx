@@ -180,6 +180,8 @@ const PostItemModal = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+        navigate("/profile");
+        window.location.reload();
       } catch (error) {
         console.error(error);
       }
@@ -189,9 +191,6 @@ const PostItemModal = () => {
       alert("Invalid Fields");
     } else {
       postItem();
-      clearState();
-      navigate("/profile");
-      window.location.reload();
     }
   };
 
