@@ -142,15 +142,6 @@ const PostItemModal = () => {
     }
   };
 
-  const clearState = () => {
-    setItemName("");
-    setDescription("");
-    setCategory("");
-    setStartBid("");
-    setExpirationDate("");
-    setExpirationTime("");
-  };
-
   const handleLogout = () => {
     // Remove token from storage
     sessionStorage.removeItem("token");
@@ -181,7 +172,7 @@ const PostItemModal = () => {
           },
         });
         navigate("/profile");
-        window.location.reload();
+        // window.location.reload();
       } catch (error) {
         console.error(error);
       }
@@ -199,15 +190,14 @@ const PostItemModal = () => {
     const token = sessionStorage.getItem("token");
     if (!token) {
       setFailedAuth(true);
-      return null;
+      return;
     }
     setIsLoggedIn(true);
-    return token;
+    return;
   };
 
   useEffect(() => {
-    const token = checkToken();
-    console.log(token);
+    checkToken();
   }, []);
 
   if (failedAuth) {
