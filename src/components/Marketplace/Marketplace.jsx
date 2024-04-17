@@ -18,12 +18,21 @@ const Marketplace = ({ searchInput }) => {
     const getItems = async (req, res) => {
       try {
         const res = await axios.get(`${baseURL}/items`);
+
+        setTotalItems(
+          res.data.filter(
+            (i) =>
+              new Date(`${i.expiration_date} ${i.expiration_time}`) -
+                new Date() >
+              0
+          )
+        );
+
         let items = res.data.filter(
           (i) =>
             new Date(`${i.expiration_date} ${i.expiration_time}`) - new Date() >
             0
         );
-        setTotalItems(items);
 
         if (searchInput) {
           items = items.filter((i) =>
@@ -75,7 +84,7 @@ const Marketplace = ({ searchInput }) => {
             return <Item key={i.item_id} item={i} />;
           })}
       </div>
-      {totalItems >= 12 && (
+      {totalItems > 12 && (
         <div className="items-list__pagination">
           <button
             disabled={currentPage === 1}
