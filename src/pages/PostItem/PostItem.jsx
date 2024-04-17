@@ -180,7 +180,6 @@ const PostItemModal = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        navigate("/");
       } catch (error) {
         console.error(error);
       }
